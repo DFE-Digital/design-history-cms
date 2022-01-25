@@ -29,11 +29,21 @@ module.exports = function (eleventyConfig) {
 
   // Transforms
 
-  // Collections
+// Collections
+eleventyConfig.addCollection('blog', collection => {
+  return collection.getFilteredByTag('blog').filter(item => {
+    return !item.data.tags.includes('user-need')
+  })
+})
+
+eleventyConfig.addCollection('pages', collection => {
+  return collection.getFilteredByTag('pages').filter(item => {
+    return !item.data.tags.includes('user-need')
+  })
+})
 
   // Passthrough
   eleventyConfig.addPassthroughCopy('./app/documents')
-  eleventyConfig.addPassthroughCopy({ './app/images': '.' })
   eleventyConfig.addPassthroughCopy('./admin');
   eleventyConfig.addPassthroughCopy({ './uploads': '.' })
   eleventyConfig.addPassthroughCopy({ 'node_modules/govuk-frontend/govuk/assets': 'assets' })
