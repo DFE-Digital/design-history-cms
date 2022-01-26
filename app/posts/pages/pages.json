@@ -1,10 +1,8 @@
 {
   "layout": "page",
-  "permalink": "{{ page.filePathStem | replace('posts/pages/', '') }}/",
+  "permalink": "{{ page.filePathStem | replace('pages/', '') }}/",
   "tags": ["pages"],
-  "eleventyComputed": {
-    "eleventyNavigation": {
-      "key": "{{ title }}"
-    }
+  "eleventyNavigation": {
+    "parent": "CMS pages"
   }
 }
